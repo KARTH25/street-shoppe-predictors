@@ -1,0 +1,38 @@
+
+{
+    "last_streek_date" : "01/05/2023",
+    "purchase_streek" : 2,
+    "offer_eligibility" : 4,
+    "purchase_historty" : [
+        { "invoiceDate" : "02/05/2023", "purchaseAmount" : 100 },     
+        { "invoiceDate" : "02/05/2023", "purchaseAmount" : 20 },
+        { "invoiceDate" : "02/05/2023", "purchaseAmount" : 50 }
+    ]
+}
+
+|
+|
+|
+
+Formatter Method (filters the purchase history with invoiceDate after last_streek_date)
+
+{
+    "last_streek_date" : "01/05/2023",
+    "purchase_streek" : 2,
+    "offer_eligibility" : 4,
+    "purchase_historty" : [
+        { "invoiceDate" : "02/05/2023", "purchaseAmount" : 100 },     
+        { "invoiceDate" : "02/05/2023", "purchaseAmount" : 20 },
+        { "invoiceDate" : "02/05/2023", "purchaseAmount" : 50 }
+    ]
+}
+|
+|
+|
+
+{
+    "purchase_by_invoice" : 3, (len of purchase history)
+    "purchase_total_amount" : 170 (sum of purchase history), 
+    "purchase_streek" :  (if next_purchase_amount - purchase_total_amount == 0) => (purchase_streek + 1) else (purchase_streek) (next_streek_amount = (purchase_streek * 100))
+    "is_eligible_customer" : (purchase_streek > 0),
+}              
